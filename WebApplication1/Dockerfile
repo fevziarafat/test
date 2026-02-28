@@ -10,7 +10,7 @@ WORKDIR "/src/WebApplication1"
 RUN dotnet publish -c Release -o /app/publish
 
 # RUNTIME STAGE
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 ENV ASPNETCORE_URLS=http://+:8080
